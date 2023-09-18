@@ -1,18 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro</title>
+    <link href="style/style.css" rel="stylesheet">
 </head>
 <body>
-
+    <h1>Pomodoro</h1>
+    <div class="conteneur">
     <div id="travail">travail</div>
     <div id="pause">pause</div>
-    <div id="timer">01:00</div>
+    </div>
+    <div id="timer">25:00</div>
+    <i id="bouton" class="fa-solid fa-play"></i>
+    <form>
+        <label >temps de travail: </label>
+        <input type="time" name="time" id="work" step="2" value = "00:25:00"/>
+
+        <label >temps de repos: </label>
+        <input type="time" name="time" id="break" step="2" value = "00:05:00"/>
+    </form>
+    <script src="js/js.js"></script>
+    <script src="https://kit.fontawesome.com/dd7dc8cdcd.js" crossorigin="anonymous"></script>
+
     
-    <button id="bouton" > start</button>
-    <script src="js.js"></script>
+
 </body>
 </html>
