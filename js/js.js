@@ -51,11 +51,11 @@ function localStorageWork() {
 
     tempsTravail.value = localStorage.getItem("myTimeWork");
     timerElement.innerText = localStorage.getItem("myTimeWork");//affiche en direct le temps du travail dans le timer
-    console.log("ok");
+
   }
   else {
     tempsTravail.value = "00:25:00";//valeur par défaut
-    console.log("ko")
+
 
   }
 
@@ -67,11 +67,11 @@ function localStorageBreak() {
   if (localStorage.getItem("myTimeBreak") != null) {
 
     tempsRepos.value = localStorage.getItem("myTimeBreak");
-    console.log("ok");
+
   }
   else {
     tempsRepos.value = "00:05:00";//valeur par défaut
-    console.log("ko")
+
 
   }
 
@@ -84,11 +84,11 @@ function localStorageBigBreak() {
   if (localStorage.getItem("myTimeBigBreak") != null) {
 
     tempsGrandRepos.value = localStorage.getItem("myTimeBigBreak");
-    console.log("ok");
+
   }
   else {
     tempsGrandRepos.value = "00:20:00";//valeur par défaut
-    console.log("ko")
+
 
   }
 
@@ -102,7 +102,7 @@ function localStorageBigBreak() {
  */
 
 function converter(time) {
-  if(time == ""){
+  if (time == "") {
     return false;
   }
   tab = time.split(':');
@@ -127,21 +127,19 @@ function lancer(work, rest, bigRest) {
   localStorage.setItem("myTimeBreak", document.getElementById("break").value);//stocke mon temps repos 
   localStorage.setItem("myTimeBigBreak", document.getElementById("bigBreak").value);//stocke mon temps grand repos 
 
-  console.log(localStorage.getItem("myTimeWork"))
-  console.log(localStorage.getItem("myTimeBreak"))
-  console.log(localStorage.getItem("myTimeBigBreak"))
+
 
   let cycle = 1;
   let tempsTravail = true
   let temps = 0;
-  if(!converter(work)){
+  if (!converter(work)) {
     temps = 1500;
   }
-  else{
+  else {
     temps = converter(work);
   }
-  
-  
+
+
 
   setInterval(() => {
 
@@ -159,13 +157,13 @@ function lancer(work, rest, bigRest) {
     //teste si le timer doit basculer en grand repos
     if (temps <= 0 && tempsTravail && cycle == 4) {
       tempsTravail = false;
-      if(!converter(bigRest)){
-        temps = 20*60;
+      if (!converter(bigRest)) {
+        temps = 20 * 60;
       }
-      else{
+      else {
         temps = converter(bigRest);
       }
-      console.log("repos");
+
       cycle = 1;
       travail.style.display = "none";
       pause.style.display = "block";
@@ -174,13 +172,13 @@ function lancer(work, rest, bigRest) {
     //teste si le timer doit basculer en repos
     if (temps <= 0 && tempsTravail && cycle != 4) {
       tempsTravail = false;
-      if(!converter(rest)){
-        temps = 5*60;
+      if (!converter(rest)) {
+        temps = 5 * 60;
       }
-      else{
+      else {
         temps = converter(rest);
       }
-      console.log("repos");
+
       travail.style.display = "none"
       pause.style.display = "block";
 
@@ -190,13 +188,13 @@ function lancer(work, rest, bigRest) {
     //teste si le timer doit basculer en travail
     if (temps <= 0 && !tempsTravail) {
       tempsTravail = true;
-      if(!converter(work)){
+      if (!converter(work)) {
         temps = 1500;
       }
-      else{
+      else {
         temps = converter(work);
       }
-      console.log("travail");
+
       travail.style.display = "block";
       pause.style.display = "none";
       cycle++;
@@ -204,7 +202,7 @@ function lancer(work, rest, bigRest) {
     }
 
 
-  }, 10)
+  }, 1000)
 }
 
 
