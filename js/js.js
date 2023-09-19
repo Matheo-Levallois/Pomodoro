@@ -102,6 +102,9 @@ function localStorageBigBreak() {
  */
 
 function converter(time) {
+  if(time == ""){
+    return false;
+  }
   tab = time.split(':');
   let heure = tab[0];
   let minutes = tab[1];
@@ -130,7 +133,13 @@ function lancer(work, rest, bigRest) {
 
   let cycle = 1;
   let tempsTravail = true
-  let temps = converter(work);
+  let temps = 0;
+  if(!converter(work)){
+    temps = 1500;
+  }
+  else{
+    temps = converter(work);
+  }
   
   
 
@@ -150,7 +159,12 @@ function lancer(work, rest, bigRest) {
     //teste si le timer doit basculer en grand repos
     if (temps <= 0 && tempsTravail && cycle == 4) {
       tempsTravail = false;
-      temps = converter(bigRest);
+      if(!converter(bigRest)){
+        temps = 20*60;
+      }
+      else{
+        temps = converter(bigRest);
+      }
       console.log("repos");
       cycle = 1;
       travail.style.display = "none";
@@ -160,7 +174,12 @@ function lancer(work, rest, bigRest) {
     //teste si le timer doit basculer en repos
     if (temps <= 0 && tempsTravail && cycle != 4) {
       tempsTravail = false;
-      temps = converter(rest);
+      if(!converter(rest)){
+        temps = 5*60;
+      }
+      else{
+        temps = converter(rest);
+      }
       console.log("repos");
       travail.style.display = "none"
       pause.style.display = "block";
@@ -171,7 +190,12 @@ function lancer(work, rest, bigRest) {
     //teste si le timer doit basculer en travail
     if (temps <= 0 && !tempsTravail) {
       tempsTravail = true;
-      temps = converter(work);
+      if(!converter(work)){
+        temps = 1500;
+      }
+      else{
+        temps = converter(work);
+      }
       console.log("travail");
       travail.style.display = "block";
       pause.style.display = "none";
@@ -180,7 +204,7 @@ function lancer(work, rest, bigRest) {
     }
 
 
-  }, 1000)
+  }, 10)
 }
 
 
