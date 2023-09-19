@@ -131,7 +131,7 @@ function lancer(work, rest, bigRest) {
   let cycle = 1;
   let tempsTravail = true
   let temps = converter(work);
-  console.log(temps);
+  
   
 
   setInterval(() => {
@@ -180,6 +180,7 @@ function lancer(work, rest, bigRest) {
     }
 
 
-  }, 10)
+  }, 1000)
 }
+
 
