@@ -1,12 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
-
-body{
+body {
     background-color: rgb(141, 52, 134);
     display: flex;
     flex-direction: column;
-    
     background-attachment: fixed;
     background-size: cover;
     margin: 20px;
@@ -16,30 +14,30 @@ body{
     font-size: large;
 
 }
+
 .conteneur {
-
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
-
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
-div{
+div {
     background-attachment: fixed;
     background-size: cover;
     margin: auto;
-   
-    
     padding: 10px;
     display: flex;
     flex-direction: column;
-        
-
 }
 
-h1{
-      background-attachment: fixed;
+@media (min-width : 700px) {
+    .conteneur {
+        width: 500px;
+    }
+}
+
+h1 {
+    background-attachment: fixed;
     background-size: cover;
     margin: auto;
     padding: 50px;
@@ -49,54 +47,32 @@ h1{
 
 }
 
-#travail {
+#travail,
+#pause {
     margin: auto;
-    
-    display: flex;
-    flex-direction: row;
-  
-    justify-content: center;
-    
-    border :solid;
-        margin-bottom : 10px;
+    border: solid;
+    margin-bottom: 10px;
     padding: 20px;
-    grid-column: 1/ 4;
-    grid-row: 1;
     border-radius: 20px;
-    
-
-
 }
 
-#pause{
+#pause {
+    display: none;
+}
 
+
+
+
+em {
     margin: auto;
-    
-    display: flex;
-    flex-direction: row;
-    
-    justify-content: center;
-    
-    border :solid;
-        margin-bottom : 10px;
-    padding: 20px;
-    grid-column: 3/ 4;
-  grid-row: 1;
-  margin-left: 20px;
-  border-radius: 20px;
-}
-
-
-em{
-    margin : auto;
-    padding : auto;
-    margin-bottom :10px;
+    padding: auto;
+    margin-bottom: 10px;
 
 }
 
-label{
-    margin : auto;
-    margin-bottom : 10px;
+label {
+    margin: auto;
+    margin-bottom: 10px;
     flex-direction: row;
     align-items: center;
     display: flex;
@@ -105,13 +81,27 @@ label{
 
 }
 
-input{
-    margin : auto;
-    margin-bottom : 10px;
+input {
+    margin: auto;
+    margin-bottom: 10px;
     flex-direction: row;
     align-items: center;
     display: flex;
-    justify-content: center;
+    width: 40%;
+
 
 }
 
+@media (min-width : 700px) {
+    .conteneur {
+        width: 500px;
+    }
+
+}
+
+@media (max-width : 600px) {
+    input {
+        width: 90%;
+
+    }
+}
