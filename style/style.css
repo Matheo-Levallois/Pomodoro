@@ -87,7 +87,7 @@ h1{
 }
 
 
-i{
+em{
     margin : auto;
     padding : auto;
     margin-bottom :10px;
@@ -114,3 +114,4 @@ input{
     justify-content: center;
 
 }
+
