@@ -22,4 +22,6 @@ Technologies utilisées :
 - CSS3
 - JavaScript
 
+//si le timer va trop vite, le deployement ne c'est pas actualiser, j'ai corriger la vitesse dans mon dernier commit
+
 
